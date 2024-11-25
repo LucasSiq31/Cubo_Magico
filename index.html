@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como resolver o cubo mágico</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="">
+        <h1>Como montar o cubo mágico</h1>
+    </header>
+    <hr>
+
+    <main>
+        <div class="container">
+            <div class="barra">
+                <div id='progresso' class="progresso"></div>
+            </div>
+            <div id="start">
+                <h2>Olá</h2>
+                <p>Se você sempre quis aprender a montar um cubo mágico, está no lugar certo!</p>
+                <p>O cubo mágico é um desafio de lógica e raciocínio, mas com as técnicas certas, qualquer um pode aprender a resolvê-lo.</p>
+                <p>A chave para montar o cubo é entender a mecânica dos movimentos e seguir um conjunto de etapas que organizam as peças de forma sistemática.</p>
+                <p>Este guia irá te levar passo a passo através do processo de resolução, desde a solução das cruzes de uma face até a finalização do cubo completo, sem a necessidade de adivinhar ou memorizar movimentos aleatórios.</p>
+                <p>Pegue e embaralhe seu Cubo Mágico e se prepare para nossa jornada.</p>
+                <p>Siga os passos com calma e prática, e logo você será capaz de montar o cubo mágico com facilidade!</p>
+
+                <div class="scene centralizar">
+                    <div class="rubik-cube orbital">
+                        <div class="face front">
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face back">
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face left">
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                        </div>
+                        <div class="face bottom">
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Conteúdo do tutorial:</h3>
+                    <ol>
+                        <li>Montagem da Cruz Branca</li>
+                        <li>Montagem da Camada 1</li>
+                        <li>Montagem da Camada 2</li>
+                        <li>Montagem da Cruz Amarela</li>
+                        <li>Alinhamento da Cruz Amarela</li>
+                        <li>Encaixe cantos amarelos</li>
+                        <li>Resolver cubo</li>
+                    </ol>
+                </div>
+                
+                <p>Clique no botão para começar</p>
+            
+                <button onclick="comecar()">Começar</button>
+            </div>
+            
+            <!-- PASSO 1 -->
+            <div id="passo1" style="display: none;">
+                <h2>Passo 1 - Montagem da Cruz Branca</h2>
+                <p>O objetivo desse passo é montar a cruz branca, conforme a ilustração a seguir</p>
+
+                <div class="ladoCubo">
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                </div>
+
+                <hr class="divisoria">
+                <h3>Montar a Magarida</h3>
+                <p>Monte uma magarida no lado do cubo que o centro é amarelo, suas pétalas devem ser brancas.</p>
+
+                <div class="ladoCubo">
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo branco"></div>
+                    <div class="pecaCubo "></div>
+                </div>
+
+                
+                <h3>Alinhar</h3>
+                <p>Com o amarelo virado para cima, alinhe o lado da peça branca em cima com o centro de uma das peças do lado.</p>
+
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block branco"></div><div class="block"></div>
+                                <div class="block branco"></div><div class="block amarelo"></div><div class="block branco"></div>
+                                <div class="block"></div><div class="block branco"></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Encaixe no branco</h3>
+                <p>Ao alinhar a peça com o centro, gire essa face 2 vezes para que a parte branca se conecte com o centro branco.</p>
+
+                <div class="imgDupla">
+                    <h1>2X</h1>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo verde"></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo verde"></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                        </div>
+                        <img src="img/faceA.png" alt="" class="seta">
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Cruz Branca formada</h3>
+                <p>Verifique se há uma cruz branca em um dos lados do cubo e que seus lados estão todos alinhados.</p>
+
+                <div class="imgDupla">
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block"></div><div class="block "></div><div class="block "></div>
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block branco"></div><div class="block"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block"></div><div class="block branco"></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <!-- PASSO 2 -->
+            <div id="passo2" style="display: none;">
+                <h2>Passo 2 - Montagem da Camada 1</h2>
+                <p>O objetivo desse passo é terminar lado branco e a camada 1 do cubo.</p>
+                <p>A partir desse momento, é necessário que você segure o seu cubo com o amarelo para cima e o branco para baixo.</p>
+
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="divisoria">
+
+                <h3>Encontrar cantos correspondentes</h3>
+                <p>Encontre os cantos correspondentes para encaixar, eles tem que ser da mesma cor. Exemplo:</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block"></div><div class="block azul"></div>
+                            <div class="block"></div><div class="block branco"></div><div class="block"></div>
+                            <div class="block "></div><div class="block"></div><div class="block "></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block laranja"></div><div class="block "></div><div class="block "></div>
+                            <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                            <div class="block "></div><div class="block "></div><div class="block "></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block "></div><div class="block"></div><div class="block "></div>
+                            <div class="block "></div><div class="block laranja"></div><div class="block "></div>
+                            <div class="block "></div><div class="block "></div><div class="block branco"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>A peça que deseja encaizar deve estar no seu lugar correto ou no canto superior direito. A peça rosa indica o lugar que deve estar.</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo rosa"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo rosa"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block rosa"></div>
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block "></div><div class="block azul"></div><div class="block rosa"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block rosa"></div><div class="block "></div><div class="block"></div>
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block rosa"></div><div class="block vermelho"></div><div class="block "></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block"></div><div class="block "></div><div class="block rosa"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="divisoria">
+                <h3>Encaixar canto</h3>
+                <p>Para encaixar a peça no lugar, você deve segur os seguntes movimentos:</p>
+
+                <p>1- Subir lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>Repita o processo até a peça encaixar em seu devido canto.</p>
+
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block "></div><div class="block branco"></div><div class="block "></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block laranja"></div><div class="block "></div><div class="block "></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block"></div>
+                            <div class="block "></div><div class="block "></div><div class="block "></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block "></div><div class="block"></div><div class="block "></div>
+                            <div class="block "></div><div class="block verde"></div><div class="block "></div>
+                            <div class="block "></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Repetir com todas as outras peças</h3>
+                <p>Faça a etapa anterior com todas as peças de canto que encaixam em baixo</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PASSO 3 -->
+            <div id="passo3" style="display: none;">
+                <h2>Passo 3 - Montagem da Camada 2</h2>
+                <p>O objetivo desse passo é terminar a camada 2 do cubo.</p>
+
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+    
+                <h3>Procurar a peça</h3>
+                <p>Encontrar a peça para ser encaixada na lateral.</p>
+
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                            <div class="block "></div><div class="block verde"></div><div class="block "></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block "></div><div class="block laranja"></div><div class="block "></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Encaixar para o lado esquerdo</h3>
+                <p>Alinhar a peça de cima com o centro, e a cor para ser encaixada para cima.</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block "></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block verde "></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block "></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block verde"></div>
+                                <div class="block"></div><div class="block "></div><div class="block "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Siga os seguintes movimentos:</p>
+
+                <p>1 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Subir lado esquerdo</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/ladoEC.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Descer lado esquerdo</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/ladoEB.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>6 - Virar em face em sentido horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+                    <img src="img/faceH.png" alt="" class="seta">
+                </div>
+
+                <p>7 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+                
+                <p>8 - Virar em face em sentido anti-horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/faceA.png" alt="" class="seta">
+                </div>
+
+                <p>9 - Verifique se a peça encaixou</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                        <div class="pecaCubo laranja"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block "></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde "></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block "></div><div class="block "></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block"></div>
+                                <div class="block"></div><div class="block "></div><div class="block "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Encaixar para o lado direito</h3>
+                <p>Deverá encaixar a peça para o lado direito caso a peça esta assim:</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block "></div><div class="block verde"></div><div class="block "></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                            <div class="block "></div><div class="block laranja"></div><div class="block "></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block "></div><div class="block amarelo"></div><div class="block laranja"></div>
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Faça os seguintes movimentos</p>
+                <p>1 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Subir lado direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde branco"></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>6 - Virar em face em sentido anti-horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/faceA.png" alt="" class="seta">
+                </div>
+
+                <p>7 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+                
+                <p>8 - Virar em face em sentido horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/faceH.png" alt="" class="seta">
+                </div>
+
+                <p>9 - Verifique se a peça encaixou</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block "></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde "></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block "></div><div class="block "></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block"></div>
+                                <div class="block"></div><div class="block "></div><div class="block "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Repetir com todas as peças</h3>
+                <p>Faça esses movimentos para encaixar todas as peças e a Camada 2 ficar pronta</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block"></div><div class="block"></div>
+                            <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <div class="obs">
+                    <h3>Em casos que a peça está no lugar mas não da posição correta</h3>
+                    <p>Fazer o processo com outra peça do LADO DE CIMA (que não possa ser alinhada para um dos lados).</p>
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block"></div><div class="block "></div>
+                                <div class="block"></div><div class="block verde"></div><div class="block laranja"></div>
+                                <div class="block verde "></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face right">
+                                
+                                <div class="block "></div><div class="block rosa"></div><div class="block"></div>
+                                <div class="block verde"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block"></div><div class="block"></div>
+                                <div class="block "></div><div class="block amarelo"></div><div class="block rosa"></div>
+                                <div class="block"></div><div class="block"></div><div class="block "></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Com a peça para encaixada no topo faça o procedimento para colocar ela no lugar.</p>
+                </div>
+
+            </div>
+            <div id="passo4" style="display: none;">
+                <h2>Passo 4 - Montagem da Cruz amarela</h2>
+                <p>O objetivo desse passo é montar a cruz amarela do seu cubo</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            
+                            <div class="block"></div><div class="block "></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+    
+                <h3>Encontrar o L ou a linha amarelo</h3>
+                <p><b>L contrário:</b> Posicionar ele de forma contrária</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="front-top">
+                            <div class="face front">
+                                <div class="block "></div><div class="block "></div><div class="block "></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            
+                            <div class="face top">
+                                <div class="block "></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block "></div><div class="block "></div><div class="block"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <p><b>Linha:</b> Posicionar ele de forma horizontal</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="front-top">
+                            <div class="face front">
+                                <div class="block "></div><div class="block "></div><div class="block "></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            
+                            <div class="face top">
+                                <div class="block "></div><div class="block "></div><div class="block "></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block "></div><div class="block "></div><div class="block"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <div class="obs">
+                    <h3>Caso de não encontrar o L amarelo ou a linha</h3>
+                    <p>Verificar se não há peças no lugar errado embaixo e na camada 1 e 2</p>
+                    <p>Procurar ponto amarelo em cima do cubo</p>
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <p>Realizar o próximo passo</p>
+                    <p>Verificar se encontrou o L ou a linha amarela</p>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Montar a cruz amarela</h3>
+                <p>Para montar a cruz amarela, realize os seguintes movimentos:</p>
+
+                <p>1 - Virar em face em sentido horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/faceH.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Subir lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>6 - Virar em face em sentido horário</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/faceH.png" alt="" class="seta">
+                </div>
+
+                <p>7 - Verificar se o a cruz foi formada</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                    
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="obs">
+                    <h3>Caso a cruz não se formar</h3>
+                    <p>Observe se apareceu a linha amarela.</p>
+
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PASSO 5 -->
+            <div id="passo5" style="display: none;">
+                <h2>Passo 5 - Alinhamento da Cruz Amarela</h2>
+                <p>O objetivo desse passo é alinhar a cruz amarela com os lados do cubo.</p>
+
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                
+                            <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+    
+                <h3>Encontrar um lado do topo alinhado</h3>
+                <p>Encontre o lado do cubo em que há apenas um lado alinhado.</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                
+                            <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                        </div>
+                    </div>
+                </div>
+                <p>Siga os seguintes movimentos.</p>
+
+                <p>1 - Subir lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Subir lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>6 - <b>2X</b> Virar o topo para a esquerda</p>
+                <div class="imgDupla">
+                    <h1>2X</h1>
+
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                        </div>
+                        <img src="img/ladoTE.png" alt="" class="seta">
+                    </div>
+                </div>
+
+                <p>7 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo branco"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>Verifique se a os outros lados estão alinhados</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                        <div class="pecaCubo azul"></div>
+                    </div>
+                    <div class="scene">
+                        <div class="rubik-cube animacao">
+                            <div class="face front">
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face back">
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face left">
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                            </div>
+                            <div class="face bottom">
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+
+                <div class="obs">
+                    <h3>Caso encontre 2 lados opostos alinhados</h3>
+                    <div class="scene">
+                        <div class="rubik-cube animacao">
+                            <div class="face front">
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face back">
+                                <div class="block"></div><div class="block verde"></div><div class="block"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block"></div><div class="block laranja"></div><div class="block"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face left">
+                                <div class="block"></div><div class="block vermelho"></div><div class="block"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                            </div>
+                            <div class="face bottom">
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>1 - Subir lado direito</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                        </div>
+                        <img src="img/ladoDC.png" alt="" class="seta">
+                    </div>
+
+                    <p>2 - Virar o topo para a esquerda</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                        </div>
+                        <img src="img/ladoTE.png" alt="" class="seta">
+                    </div>
+
+                    <p>3 - Descer lado direito</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo vermelho"></div>
+                            <div class="pecaCubo vermelho"></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                        </div>
+                        <img src="img/ladoDB.png" alt="" class="seta">
+                    </div>
+
+                    <p>4 - Virar o topo para a esquerda</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo vermelho"></div>
+                            <div class="pecaCubo vermelho"></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo "></div>
+                        </div>
+                        <img src="img/ladoTE.png" alt="" class="seta">
+                    </div>
+
+                    <p>5 - Subir lado direito</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo "></div>
+
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo "></div>
+                        </div>
+                        <img src="img/ladoDC.png" alt="" class="seta">
+                    </div>
+
+                    <p>6 - <b>2X</b> Virar o topo para a esquerda</p>
+                    <div class="imgDupla">
+                        <h1>2X</h1>
+
+                        <div class="movimento">
+                            <div class="ladoCubo">
+                                <div class="pecaCubo "></div>
+                                <div class="pecaCubo "></div>
+                                <div class="pecaCubo "></div>
+                                <div class="pecaCubo azul"></div>
+                                <div class="pecaCubo azul"></div>
+                                <div class="pecaCubo branco"></div>
+                                <div class="pecaCubo azul"></div>
+                                <div class="pecaCubo azul"></div>
+                                <div class="pecaCubo branco"></div>
+                            </div>
+                            <img src="img/ladoTE.png" alt="" class="seta">
+                        </div>
+                    </div>
+
+                    <p>7 - Descer lado direito</p>
+                    <div class="movimento">
+                        <div class="ladoCubo">
+                            <div class="pecaCubo "></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo azul"></div>
+                            <div class="pecaCubo branco"></div>
+                        </div>
+                        <img src="img/ladoDB.png" alt="" class="seta">
+                    </div>
+
+                    <p>8 - Procure o lado alinhado</p>
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block"></div><div class="block azul"></div><div class="block"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                    
+                                <div class="block"></div><div class="block "></div><div class="block"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block"></div><div class="block amarelo"></div><div class="block"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PASSO 6 -->
+            <div id="passo6" style="display: none;">
+                <h2>Passo 6 - Encaixe dos cantos amarelos</h2>
+                <p>O objetivo desse paso é colocar os cantos amarelos em seus devidos lugares.</p>
+                <div class="scene">
+                    <div class="rubik-cube animacao">
+                        <div class="face front">
+                            <div class="block amarelo"></div><div class="block verde"></div><div class="block laranja"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face back">
+                            <div class="block laranja"></div><div class="block azul"></div><div class="block amarelo"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            <div class="block amarelo"></div><div class="block laranja"></div><div class="block amarelo"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face left">
+                            <div class="block azul"></div><div class="block vermelho"></div><div class="block verde"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block vermelho"></div><div class="block amarelo"></div><div class="block azul"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block vermelho"></div><div class="block amarelo"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face bottom">
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divisoria">
+    
+                
+                <h3>Verificar se há um canto no lugar correto</h3>
+                <p>Um canto no lugar correto tem as suas 3 cores correspondentes ao centro de suas faces</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block azul"></div><div class="block amarelo"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                
+                            <div class="block azul"></div><div class="block vermelho"></div><div class="block"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block vermelho"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Alinhe o cubo de modo que essa peça fique no canto superior direito de modo que não desalinhe os centros. A peça rosa representa onde o canto correto deve ficar.</p>
+                <div class="ladoCubo">
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo rosa"></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo "></div>
+                    <div class="pecaCubo amarelo"></div>
+                    <div class="pecaCubo "></div>
+                </div>
+
+                <div class="obs">
+                    <p>Caso não encontre essa peça alinhada, faça o próximo processo</p>
+                </div>
+
+                <hr class="divisoria">
+
+                <h3>Encaixando as peças</h3>
+                <p>Essa etapa coloca as peças no lugar certo, mas nem sempre na orientação certa. Segure o cube dessa maneira e siga os seguintes movimentos. A peça rosa representa o canto correto.</p>
+                <div class="scene">
+                    <div class="front-top">
+                        <div class="face front">
+                            <div class="block "></div><div class="block vermelho"></div><div class="block "></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        
+                        <div class="face top">
+                            <div class="block "></div><div class="block amarelo"></div><div class="block rosa"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block "></div><div class="block amarelo"></div><div class="block"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <p>1 - Descer lado esquerdo</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                    </div>
+                    <img src="img/ladoEB.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Descer lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                    </div>
+                    <img src="img/ladoDB.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTE.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Subir lado esquerdo</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoEC.png" alt="" class="seta">
+                </div>
+
+                <p>6 - Virar o topo para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <p>7 - Subir lado direito</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div> 
+                        <div class="pecaCubo "></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>8 - Virar o topo para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div> 
+                        <div class="pecaCubo vermelho"></div>
+                    </div>
+                    <img src="img/ladoDC.png" alt="" class="seta">
+                </div>
+
+                <p>9 - Verificar se todas as peças estão no lugar certo</p>
+                <div class="imgDupla">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div>
+                        <div class="pecaCubo vermelho"></div> 
+                        <div class="pecaCubo vermelho"></div>
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube animacao">
+                            <div class="face front">
+                                <div class="block amarelo"></div><div class="block verde"></div><div class="block laranja"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face back">
+                                <div class="block laranja"></div><div class="block azul"></div><div class="block amarelo"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="block amarelo"></div><div class="block laranja"></div><div class="block amarelo"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face left">
+                                <div class="block azul"></div><div class="block vermelho"></div><div class="block verde"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block vermelho"></div><div class="block amarelo"></div><div class="block azul"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block vermelho"></div><div class="block amarelo"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face bottom">
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                                <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="obs">
+                        <p>Caso nem todas as peças se encaixem, repita o processo novamente!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="passo7" style="display: none;">
+                <h2>Passo 7 - Resolver cubo</h2>
+                <p>O objetivo desse passo é completar o cubo, com todas as faces montadas corretamente.</p>
+                <div class="scene">
+                    <div class="rubik-cube animacao">
+                        <div class="face front">
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face back">
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face left">
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                        </div>
+                        <div class="face bottom">
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <h3>Alinhar o cubo</h3>
+                <p>Alinhe o cubo em que a peça desalinhada fique no canto superior, a peça rosa representa a peça que deve irá ser alinhada.</p>
+                <div class="imgDupla">
+                    <div class="scene">
+                        <div class="front-top">
+                            <div class="face front">
+                                <div class="block rosa"></div><div class="block verde"></div><div class="block "></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                    
+                            <div class="face top">
+                                <div class="block "></div><div class="block amarelo"></div><div class="block"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block rosa"></div><div class="block amarelo"></div><div class="block"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+
+                    <div class="ladoCubo">
+                        <div class="pecaCubo rosa"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div> 
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                </div>
+
+                <h3>Encaixando as peças</h3>
+                <p>Faça os seguintes movimentos</p>
+
+                <p>1 - Descer lado esquerdo</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo rosa"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div> 
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoEB.png" alt="" class="seta">
+                </div>
+
+                <p>2 - Virar base para a direita</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo rosa"></div>
+                        <div class="pecaCubo verde"></div> 
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoBD.png" alt="" class="seta">
+                </div>
+
+                <p>3 - Subir lado esquerdo</p> 
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo amarelo"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo "></div> 
+                        <div class="pecaCubo rosa"></div>
+                    </div>
+                    <img src="img/ladoEC.png" alt="" class="seta">
+                </div>
+
+                <p>4 - Virar base para a esquerda</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo branco"></div>
+                        <div class="pecaCubo "></div> 
+                        <div class="pecaCubo rosa"></div>
+                    </div>
+                    <img src="img/ladoBE.png" alt="" class="seta">
+                </div>
+
+                <p>5 - Repita o processo até que a peça se alinhe com o topo do cubo</p>
+                <div class="scene">
+                    <div class="rubik-cube">
+                        <div class="face front">
+                            <div class="block"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block "></div><div class="block vermelho"></div><div class="block "></div>
+                            <div class="block "></div><div class="block "></div><div class="block "></div>
+                        </div>
+                        <div class="face right">
+                
+                            <div class="block verde"></div><div class="block verde"></div><div class="block"></div>
+                            <div class="block "></div><div class="block verde"></div><div class="block "></div>
+                            <div class="block "></div><div class="block "></div><div class="block "></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block"></div><div class="block amarelo"></div><div class="block "></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="obs">
+                    <p>É necessário fazer esse movimento de 2 a 4 vezes até que a peça se encaixe no lugar.</p>
+                </div>
+                
+                <p>6 - Quando encaixar gire o topo do cubo para esquerda e repita o processo até que todas as peças estejam alinhadas.</p>
+                <div class="movimento">
+                    <div class="ladoCubo">
+                        <div class="pecaCubo rosa"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo "></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div>
+                        <div class="pecaCubo verde"></div> 
+                        <div class="pecaCubo verde"></div>
+                    </div>
+                    <img src="img/ladoTD.png" alt="" class="seta">
+                </div>
+
+                <div class="obs">
+                    <p>Não se preucupe que se ao encaixar a peça no lugar, o restante do cubo desmontou. Continue encaixando os outros cantos para que o cubo seja resolvido.</p>
+                </div>
+
+                <h3>Finalizando</h3>
+                <p>Gire os lados restante para que todas as faces do cubo esteja iguais</p>
+                <div class="imgDupla">
+                    <div class="movimento">
+                        <div class="movimento">
+                            <div class="ladoCubo">
+                                <div class="pecaCubo vermelho"></div>
+                                <div class="pecaCubo vermelho"></div>
+                                <div class="pecaCubo vermelho"></div>
+                                <div class="pecaCubo verde"></div>
+                                <div class="pecaCubo verde"></div>
+                                <div class="pecaCubo verde"></div>
+                                <div class="pecaCubo laranja"></div>
+                                <div class="pecaCubo laranja"></div>
+                                <div class="pecaCubo laranja"></div>
+                            </div>
+                            <img src="img/ladoTD.png" alt="" class="seta">
+                        </div>
+                        <img src="img/ladoBE.png" alt="" class="seta">
+                    </div>
+
+                    <div class="scene">
+                        <div class="rubik-cube">
+                            <div class="face front">
+                                <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            </div>
+                            <div class="face right">
+                    
+                                <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                                <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                                <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                                <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="passo8" style="display: none;">
+                <h2>Parabéns, você conseguiu</h2>
+
+                <div class="scene centralizar">
+                    <div class="rubik-cube orbital">
+                        <div class="face front">
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                            <div class="block verde"></div><div class="block verde"></div><div class="block verde"></div>
+                        </div>
+                        <div class="face back">
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                            <div class="block azul"></div><div class="block azul"></div><div class="block azul"></div>
+                        </div>
+                        <div class="face right">
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                            <div class="block laranja"></div><div class="block laranja"></div><div class="block laranja"></div>
+                        </div>
+                        <div class="face left">
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                            <div class="block vermelho"></div><div class="block vermelho"></div><div class="block vermelho"></div>
+                        </div>
+                        <div class="face top">
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                            <div class="block amarelo"></div><div class="block amarelo"></div><div class="block amarelo"></div>
+                        </div>
+                        <div class="face bottom">
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                            <div class="block branco"></div><div class="block branco"></div><div class="block branco"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Agora que você aprendeu, tente se desafiar a resolver sozinho.</p>
+                <p>Caso ainda fique com dúvidas de como resolver, volte para este guia.</p>
+                <p>COmpartilhe com seus amigos para eles aprenderem a resolver também!!</p>
+            </div>
+            
+            <!-- Navegação para os passos -->
+            <hr class="divisoria">
+            <div id="passo-passo" style="display: none;">
+                <button id="prev-btn" onclick="mudarPasso(-1)">Passo Anterior</button>
+                <button id="next-btn" onclick="mudarPasso(1)">Próximo Passo</button>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+
+    <hr>
+
+    <footer>
+        <div class="container">
+
+            <h2>Manual Cubo Magico</h2>
+
+            <div class="perfil">
+                <img src="https://avatars.githubusercontent.com/u/92749793?v=4" alt="">
+                <p>Feito por: Lucas Siqueira</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

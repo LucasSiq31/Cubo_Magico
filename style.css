@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    background-color: #353535;
+    font-family: Raleway;
+    color: white;
+    margin: 0px;
+    font-size: large;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 30px;
+}
+
+header img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+hr{
+    border: 2px solid white;
+}
+.divisoria{
+    border: 2px solid rgb(65, 65, 65);
+}
+
+main{
+    margin: 0px 30px;
+}
+
+
+footer{
+    max-width: 1000px;
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.perfil{
+    display: flex;
+    align-items: center;
+}
+
+.barra{
+    width: 100%;
+    background-color: #5f5f5f;
+    height: 20px;
+    border-radius: 30px;
+    margin: 20px 0px;
+}
+.progresso{
+    width: 0%;
+    background: #ffffff;
+    height: 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+button{
+    width: 100%;
+    font-family: Raleway;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    border: 0px;
+    margin: 0px;
+}
+
+#passo-passo{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+#passo-passo button{
+    width: calc(50% - 5px);
+}
+
+.centralizar{
+    margin: 0 auto;;
+}
+
+/* TUTORIAL */
+
+.imgDupla{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imgDupla h1{
+    margin-right: 10px;
+}
+
+.obs{
+    background-color: #464646;
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+/* CSS CUBO PLANO */
+.ladoCubo{
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.pecaCubo{
+    width: 50px;
+    height: 50px;
+    background-color: #5f5f5f;
+    border-radius: 5px;
+}
+
+/* CSS CUBO 3D */
+
+.scene {
+    perspective: 1000px;
+    width: 250px; /* Mesma largura do cubo */
+    height: 250px; /* Espaço abaixo do cubo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rubik-cube {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-45deg);
+}
+.front-top {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(0deg);
+}
+.face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background: #000;
+    transform-origin: center;
+    border: 2px solid #000;
+}
+
+.front { transform: rotateY(0deg) translateZ(75px); }
+.back  { transform: rotateY(180deg) translateZ(75px); }
+.right { transform: rotateY(90deg) translateZ(75px); }
+.left  { transform: rotateY(-90deg) translateZ(75px); }
+.top   { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+.block {
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    background-color: #5f5f5f;
+}
+
+
+/* CORES DA PEÇA */
+.branco{
+    background-color: #ffffff;
+}
+.amarelo{
+    background-color: #ffee00;
+}
+.verde{
+    background-color: #1ae246;
+}
+.azul{
+    background-color: #1ab3e2;
+}
+.vermelho{
+    background-color: #e21a1a;
+}
+.laranja{
+    background-color: #e2811a;
+}
+.rosa{
+    background-color: #e21ac7;
+}
+
+
+/* MOVIMENTOS */
+.movimento {
+    position: relative; /* Torna a div um contêiner para posicionamento absoluto */
+    width: 160px;
+    height: 160px;
+}
+
+.seta {
+    position: absolute; /* Posiciona a imagem em relação ao contêiner */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ou defina um tamanho específico, como 50px */
+    height: 100%; /* Ou defina um tamanho específico */
+    object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+/* ANIMAÇÃO CUBO */
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(-30deg) rotateY(0deg); /* Mantém a inclinação no eixo X */
+    }
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg); /* Gira no eixo Y com inclinação */
+    }
+}
+
+.animacao {
+    transform-style: preserve-3d;
+    animation: rotateCube 5s linear infinite;
+}
+
+@keyframes orbitCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+        transform: rotateX(90deg) rotateY(0deg) rotateZ(45deg);
+    }
+    50% {
+        transform: rotateX(180deg) rotateY(90deg) rotateZ(90deg);
+    }
+    75% {
+        transform: rotateX(270deg) rotateY(180deg) rotateZ(135deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
+    }
+}
+
+.orbital {
+    transform-style: preserve-3d;
+    animation: orbitCube 6s linear infinite; /* 6 segundos para a órbita */
+}
