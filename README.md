@@ -20,6 +20,11 @@ O o guia mostra 7 etapas para a resolução do cubo
 -Resolver cubo
 
 ##
+<b>Acesso para a aplicação:</b>
+
+https://lucassiq31.github.io/Cubo_Magico/
+
+##
 
 <b>Feito com:</b>
 <div style="display: inline_block"><br>
